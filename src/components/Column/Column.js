@@ -5,19 +5,24 @@ import { useSelector } from 'react-redux';
 
 
 
-const Column = props => {
+const Column = ({ id, icon, title }) => {
 
-    const cards = useSelector(state => state.cards.filter(card => card.columnId === props.id));
+   const searchString = useSelector(state => state.searchString);
+
+
+   const cards = useSelector(state => state.cards).filter(card => card.columnId === id && card.title.toLowerCase().includes(searchString.toLowerCase()));
+
 
     return (
         <article className={styles.column}>
-            <h2 className={styles.title}><span className={styles.icon + ' fa fa-' + props.icon}></span>{props.title}</h2>
+            <h2 className={styles.title}><span className={styles.icon + ' fa fa-' + icon}></span>{title}</h2>
             <ul className={styles.cards}>
-                {cards.map(card => <Card key={card.id} title={card.title} />)}
+                {cards.map(card => <Card key={card.id} title={card.title} id={card.id}/>)}
             </ul>
-            <CardForm columnId={props.columnId}/>
+          <CardForm columnId={id}  />
         </article>
     );
+
 };
 
 export default Column;
