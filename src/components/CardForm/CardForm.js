@@ -3,21 +3,25 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
+import { addCard } from '../../redux/store';
 
-const CardForm = ({ columnId, id }) => {
-    const [title, setTitle] = useState('');
+const CardForm = ({ columnId }) => {
+
+    const [searchString, setSearchString] = useState('');
+   
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch({ type: 'ADD_CARD', payload: { title, columnId }});
-        setTitle('');
+        dispatch(addCard({ searchString, columnId }));
+        setSearchString('');
     };
+
 
     const dispatch = useDispatch(); 
 
 	return (
         <form className={styles.cardForm} onSubmit={handleSubmit}>
-            <TextInput value={title} onChange={e => setTitle(e.target.value)} />
+            <TextInput value={searchString} onChange={e => setSearchString(e.target.value)} />
             <Button>Add card</Button>
         </form>
 	);
