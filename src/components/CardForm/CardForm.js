@@ -7,13 +7,13 @@ import { addCard } from '../../redux/store';
 
 const CardForm = ({ columnId }) => {
 
-    const [searchString, setSearchString] = useState('');
+    const [title, setTitle] = useState('');
    
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(addCard({ searchString, columnId }));
-        setSearchString('');
+        dispatch(addCard({ title, columnId }));
+        setTitle('');
     };
 
 
@@ -21,7 +21,7 @@ const CardForm = ({ columnId }) => {
 
 	return (
         <form className={styles.cardForm} onSubmit={handleSubmit}>
-            <TextInput value={searchString} onChange={e => setSearchString(e.target.value)} />
+            <TextInput value={title} onChange={e => setTitle(e.target.value)} />
             <Button>Add card</Button>
         </form>
 	);
