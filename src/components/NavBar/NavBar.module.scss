@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     padding: 5px;
+   
 }
 
 i {
@@ -17,16 +18,22 @@ i {
     margin-top: 15px;
 }
 
-ul {
+.navbar_items {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     list-style: none;
-}
+    padding-left: 0px;
 
-li a {
+    li a {
     color: white;
     margin-left: 10px;
     font-weight: bold;
     text-decoration: none;
+}
+
+.linkActive {
+    color: $color-warning;
+}
 }
 

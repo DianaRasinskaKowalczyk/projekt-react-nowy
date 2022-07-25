@@ -15,6 +15,8 @@ export const getFilteredCards = ({ cards, searchString }, columnId) => {
 
 export const getAllColumns = (state) => state.columns;
 
+export const getListById = ({ lists }, listId) => lists.find(list => list.id === listId)
+
 
 // action creators
 
