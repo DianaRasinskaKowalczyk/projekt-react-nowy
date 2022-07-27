@@ -7,7 +7,7 @@ import { getFilteredFavoriteCards } from '../../redux/store';
 
 const Favorite = () => {
 
-  const favoriteCards = useSelector(getFilteredFavoriteCards)
+  const favoriteCards = useSelector(getFilteredFavoriteCards);
 
 
   return(
