@@ -1,4 +1,6 @@
+@use "sass:math";
 @import '../../styles/settings.scss';
+
 
 .card {
     position: relative;
@@ -10,4 +12,14 @@
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+}
+
+.button_star {
+    border: none;
+    background-color: inherit;
+    color: black;
+}
+  
+.active {
+    color: red;
 }
